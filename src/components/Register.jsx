@@ -1,16 +1,17 @@
 import { useState } from "react"
 import { useHistory } from "react-router-dom"
-import { getAllUsers, postUser } from "../service"
+import { postUser } from "../service"
+import Error from "./Error"
 
-const Register = () => {
+const Register = ({ error, setError }) => {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
     const history = useHistory()
 
-    const isValid = (arr) => {
-        if (username.length >= 4 &&
-            !arr.find(user => user.username === username || user.email === email) &&
+    const isValid = () => {
+        if (username.trim().length >= 4 &&
+            email.trim().length > 0 &&
             pass.length >= 8 &&
             !/^[a-zA-Z]+$/.test(pass) &&
             !/^\d+$/.test(pass)) {
@@ -23,27 +24,25 @@ const Register = () => {
             <form onSubmit={(e) => {
                 e.preventDefault()
 
-                getAllUsers().then(res => {
-                    if(isValid(res.data)){
-                        let user = {
-                            username: username,
-                            email: email,
-                            password: pass
-                        }
-                        postUser(user)
-                        history.push('/login')
+                if (isValid()) {
+                    let user = {
+                        username: username,
+                        email: email,
+                        password: pass
                     }
-                    else if (res.data.find(user => user.username === username || user.email === email)) {
-                        console.log('Username already exists or another user is already registrated using this email!')
-                    }
-                    else if (username.length < 4) {
-                        console.log('Username must include at least 4 characters!')
-                    }
-                    else if (/^[a-zA-Z]+$/.test(pass) ||
-                        /^\d+$/.test(pass) || pass.length < 8) {
-                        console.log('Password must include 8 characters or more, at least one number and one letter!')
-                    }
-                })
+                    postUser(user)
+                    history.push('/login')
+                }
+                else if (username.trim().length < 4) {
+                    setError('Username must include at least 4 characters!')
+                }
+                else if (email.trim().length === 0) {
+                    setError('Email must be entered!')
+                }
+                else if (/^[a-zA-Z]+$/.test(pass) ||
+                    /^\d+$/.test(pass) || pass.trim().length < 8) {
+                    setError('Password must include 8 characters or more, at least one number and one letter!')
+                }
             }}>
                 <div>
                     <label htmlFor="username">Username: </label>
@@ -58,9 +57,10 @@ const Register = () => {
                     <input type="password" id="pass" placeholder="Password..." onChange={(e) => setPass(e.target.value)} />
                 </div>
                 <div>
-                    <input type="submit" value="Register"/>
+                    <input type="submit" value="Register" />
                 </div>
             </form>
+            <Error error={error} />
         </>
     )
 }

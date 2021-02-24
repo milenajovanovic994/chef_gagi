@@ -1,8 +1,9 @@
 import { useState } from "react"
 import { Link, useHistory } from "react-router-dom"
-import { getAllUsers } from "../service"
+import { loginUser } from "../service"
+import Error from "./Error"
 
-const Login = ({ setUser }) => {
+const Login = ({ setUser, error, setError }) => {
     const [identity, setIdentity] = useState('')
     const [password, setPassword] = useState('')
     const history = useHistory()
@@ -13,16 +14,23 @@ const Login = ({ setUser }) => {
             <form onSubmit={(e) => {
                 e.preventDefault()
 
-                getAllUsers().then(res => {
-                    let maybeUser = res.data.find(user => (user.username === identity || user.email === identity) && user.password === password)
+                let maybeUser = {
+                    username: identity,
+                    password: password
+                }
 
-                    if (maybeUser) {
+                loginUser(maybeUser).then(res => {
+                    if(res.data === "Not Allowed"){
+                        setError('Wrong username or password!')
+                    }
+                    // if (res.data !== "Success") {
                         setUser(maybeUser)
                         history.push('/recipes')
-                    }
-                    else {
-                        console.log('Wrong username or password')
-                    }
+                    //     console.log(res.data)
+                    // }
+                    // else {
+                    //     console.log('Wrong username or password.')
+                    // }
                 })
             }}>
                 <div>
@@ -41,6 +49,7 @@ const Login = ({ setUser }) => {
                 <p>You don't have an account yet? Register now!</p>
                 <Link to="/register">Registration</Link>
             </div>
+            <Error error={error} />
         </>
     )
 }
