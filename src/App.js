@@ -9,7 +9,6 @@ import PostRecipe from "./components/PostRecipe";
 const App = () => {
 	const [user, setUser] = useState(null)
 	const [recipes, setRecipes] = useState([])
-	const [error, setError] = useState('')
 
 	return (
 		<Router>
@@ -33,10 +32,10 @@ const App = () => {
 					<Home />
 				</Route>
 				<Route exact path="/login">
-					<Login setUser={setUser} error={error} setError={setError} />
+					<Login setUser={setUser} user={user} />
 				</Route>
 				<Route exact path="/register">
-					<Register error={error} setError={setError} />
+					<Register />
 				</Route>
 				<Route exact path="/recipes">
 					<Recipes setRecipes={setRecipes} recipes={recipes} user={user} />

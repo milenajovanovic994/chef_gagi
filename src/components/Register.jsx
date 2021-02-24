@@ -7,6 +7,7 @@ const Register = ({ error, setError }) => {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
+    const [errorR, setErrorR] = useState('')
     const history = useHistory()
 
     const isValid = () => {
@@ -34,14 +35,14 @@ const Register = ({ error, setError }) => {
                     history.push('/login')
                 }
                 else if (username.trim().length < 4) {
-                    setError('Username must include at least 4 characters!')
+                    setErrorR('Username must include at least 4 characters!')
                 }
                 else if (email.trim().length === 0) {
-                    setError('Email must be entered!')
+                    setErrorR('Email must be entered!')
                 }
                 else if (/^[a-zA-Z]+$/.test(pass) ||
                     /^\d+$/.test(pass) || pass.trim().length < 8) {
-                    setError('Password must include 8 characters or more, at least one number and one letter!')
+                    setErrorR('Password must include 8 characters or more, at least one number and one letter!')
                 }
             }}>
                 <div>
@@ -60,7 +61,7 @@ const Register = ({ error, setError }) => {
                     <input type="submit" value="Register" />
                 </div>
             </form>
-            <Error error={error} />
+            <Error error={errorR} />
         </>
     )
 }

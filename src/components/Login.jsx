@@ -3,9 +3,10 @@ import { Link, useHistory } from "react-router-dom"
 import { loginUser } from "../service"
 import Error from "./Error"
 
-const Login = ({ setUser, error, setError }) => {
+const Login = ({ setUser,user }) => {
     const [identity, setIdentity] = useState('')
     const [password, setPassword] = useState('')
+    const [errorL, setErrorL] = useState('')
     const history = useHistory()
 
     return (
@@ -20,17 +21,16 @@ const Login = ({ setUser, error, setError }) => {
                 }
 
                 loginUser(maybeUser).then(res => {
-                    if(res.data === "Not Allowed"){
-                        setError('Wrong username or password!')
-                    }
-                    // if (res.data !== "Success") {
+                    if (res.data === "Success") {
                         setUser(maybeUser)
                         history.push('/recipes')
-                    //     console.log(res.data)
-                    // }
-                    // else {
-                    //     console.log('Wrong username or password.')
-                    // }
+                        console.log(user, 'ok')
+
+                    }
+                    else if (res.data === "Not Allowed") {
+                        setErrorL('Wrong username or password!')
+                        console.log(user, 'not ok')
+                    }
                 })
             }}>
                 <div>
@@ -49,7 +49,7 @@ const Login = ({ setUser, error, setError }) => {
                 <p>You don't have an account yet? Register now!</p>
                 <Link to="/register">Registration</Link>
             </div>
-            <Error error={error} />
+            <Error error={errorL} />
         </>
     )
 }
