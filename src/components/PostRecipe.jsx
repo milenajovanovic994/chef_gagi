@@ -6,6 +6,8 @@ const PostRecipe = ({ user, setRecipes }) => {
     const [title, setTitle] = useState('')
     const [recipeText, setRecipeText] = useState('')
     const [author, setAuthor] = useState('')
+    const [ingredients, setIngredients] = useState([])
+    const [dishType, setDishType] = useState('')
     const history = useHistory()
 
     return user ? (
@@ -17,8 +19,11 @@ const PostRecipe = ({ user, setRecipes }) => {
                 let newRecipe = {
                     recipe: recipeText,
                     author: author,
-                    title: title
+                    title: title,
+                    ingredients: [...ingredients],
+                    dishType: dishType
                 }
+                console.log(newRecipe)
                 postRecipe(newRecipe).then(res => {
                     setRecipes(prev => [...prev, res.data])
                 })
@@ -36,6 +41,14 @@ const PostRecipe = ({ user, setRecipes }) => {
                 <div>
                     <label htmlFor="author">Your name: </label>
                     <input type="text" id="author" onChange={(e) => setAuthor(e.target.value)} />
+                </div>
+                <div>
+                    <label htmlFor="recipe-title">List of your ingredients: </label> <br />
+                    <input type="text" id="recipe-title" onChange={(e) => setIngredients(e.target.value)} />
+                </div>
+                <div>
+                    <label htmlFor="recipe-title">Dish type: </label> <br />
+                    <input type="text" id="recipe-title" onChange={(e) => setDishType(e.target.value)} />
                 </div>
                 <div>
                     <input type="submit" value="Post Recipe!" />

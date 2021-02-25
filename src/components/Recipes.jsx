@@ -26,7 +26,7 @@ const Recipes = ({ setRecipes, recipes, user, setUser }) => {
         return () => mounted = false
     }, [history, setRecipes, user])
 
-    let options = [...new Set(recipes.map(recipe => recipe.type))]
+    let options = [...new Set(recipes.map(recipe => recipe.dishType))]
 
 
     return (
@@ -39,9 +39,9 @@ const Recipes = ({ setRecipes, recipes, user, setUser }) => {
             </header>
             <main>
                 <div>
-                    <Select setSelect={setSelect} options={options} />
+                    <Select setSelect={setSelect} options={options} type='types of food' />
                 </div>
-                {recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />)}
+                {recipes.filter(r => r.dishType.startsWith(select)).map(recipe => <Recipe key={recipe.id} recipe={recipe} />)}
             </main>
         </>
     )

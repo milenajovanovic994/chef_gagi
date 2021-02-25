@@ -21,14 +21,18 @@ const Login = ({ setUser,user }) => {
                 }
 
                 loginUser(maybeUser).then(res => {
+                    console.log(res)
                     if (res.data === "Success") {
                         setUser(maybeUser)
                         history.push('/recipes')
                     }
                     else if (res.data === "Not Allowed") {
-                        setErrorL('Wrong username or password!')
+                        setErrorL('Wrong password!')
                     }
-                })
+                    else if (res.data === 'Cannot find user') {
+                        setErrorL('User with this username does not exist.')
+                    }
+                }).catch(error => console.log(error))
             }}>
                 <div>
                     <label htmlFor="identity">Username or Email: </label>
