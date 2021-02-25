@@ -5,8 +5,7 @@ import { postRecipe } from "../service"
 const PostRecipe = ({ user, setRecipes }) => {
     const [title, setTitle] = useState('')
     const [recipeText, setRecipeText] = useState('')
-    const [author, setAuthor] = useState('')
-    const [ingredients, setIngredients] = useState([])
+    const [ingredients, setIngredients] = useState('')
     const [dishType, setDishType] = useState('')
     const history = useHistory()
 
@@ -16,11 +15,13 @@ const PostRecipe = ({ user, setRecipes }) => {
             <form onSubmit={(e) => {
                 e.preventDefault()
 
+                let ing = ingredients.split(',')
+
                 let newRecipe = {
                     recipe: recipeText,
-                    author: author,
+                    author: user.username,
                     title: title,
-                    ingredients: [...ingredients],
+                    ingredients: ing,
                     dishType: dishType
                 }
                 console.log(newRecipe)
@@ -37,10 +38,6 @@ const PostRecipe = ({ user, setRecipes }) => {
                 <div>
                     <label htmlFor="recipe-text">Recipe: </label> <br />
                     <textarea id="recipe-text" cols="30" rows="10" onChange={(e) => setRecipeText(e.target.value)}></textarea>
-                </div>
-                <div>
-                    <label htmlFor="author">Your name: </label>
-                    <input type="text" id="author" onChange={(e) => setAuthor(e.target.value)} />
                 </div>
                 <div>
                     <label htmlFor="recipe-title">List of your ingredients: </label> <br />

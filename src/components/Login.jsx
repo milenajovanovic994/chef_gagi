@@ -29,10 +29,9 @@ const Login = ({ setUser,user }) => {
                     else if (res.data === "Not Allowed") {
                         setErrorL('Wrong password!')
                     }
-                    else if (res.data === 'Cannot find user') {
-                        setErrorL('User with this username does not exist.')
-                    }
-                }).catch(error => console.log(error))
+                }).catch(() => {
+                    setErrorL('User with this username does not exist.')
+                } )
             }}>
                 <div>
                     <label htmlFor="identity">Username or Email: </label>

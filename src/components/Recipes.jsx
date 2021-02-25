@@ -6,6 +6,7 @@ import Select from "./Select"
 
 const Recipes = ({ setRecipes, recipes, user, setUser }) => {
     const [select, setSelect] = useState('')
+    // const [search, setSearch] = useState('')
     const history = useHistory()
 
 
@@ -21,6 +22,7 @@ const Recipes = ({ setRecipes, recipes, user, setUser }) => {
         getAllRecipes().then(res => {
             if (mounted)
                 setRecipes(res.data)
+                // console.log(res.data.map(r => r.ingredients))
         })
 
         return () => mounted = false
@@ -41,6 +43,9 @@ const Recipes = ({ setRecipes, recipes, user, setUser }) => {
                 <div>
                     <Select setSelect={setSelect} options={options} type='types of food' />
                 </div>
+                {/* <div>
+                    <input type="search" onChange={(e) => setSearch(e.target.value)}/>
+                </div> */}
                 {recipes.filter(r => r.dishType.startsWith(select)).map(recipe => <Recipe key={recipe.id} recipe={recipe} />)}
             </main>
         </>
