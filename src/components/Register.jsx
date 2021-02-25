@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom"
 import { postUser } from "../service"
 import Error from "./Error"
 
-const Register = ({ error, setError }) => {
+const Register = () => {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')

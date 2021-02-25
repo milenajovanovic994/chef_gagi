@@ -13,6 +13,7 @@ const App = () => {
 	return (
 		<Router>
 			<nav>
+				<Link to="/">Home</Link>
 				<Link to="/recipes">Recipes</Link>
 				<Link to="/postrecipe">Post Recipe</Link>
 
@@ -20,7 +21,6 @@ const App = () => {
 					user.username
 					:
 					<>
-						<Link to="/">Home</Link>
 						<Link to="/login">Login</Link>
 						<Link to="/register">Register</Link>
 					</>
@@ -38,7 +38,7 @@ const App = () => {
 					<Register />
 				</Route>
 				<Route exact path="/recipes">
-					<Recipes setRecipes={setRecipes} recipes={recipes} user={user} />
+					<Recipes setRecipes={setRecipes} recipes={recipes} user={user} setUser={setUser} />
 				</Route>
 				<Route exact path="/postrecipe">
 					<PostRecipe user={user} setRecipes={setRecipes} />

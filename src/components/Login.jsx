@@ -24,12 +24,9 @@ const Login = ({ setUser,user }) => {
                     if (res.data === "Success") {
                         setUser(maybeUser)
                         history.push('/recipes')
-                        console.log(user, 'ok')
-
                     }
                     else if (res.data === "Not Allowed") {
                         setErrorL('Wrong username or password!')
-                        console.log(user, 'not ok')
                     }
                 })
             }}>
