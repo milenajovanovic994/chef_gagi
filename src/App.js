@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Recipes from "./components/Recipes";
 import PostRecipe from "./components/PostRecipe";
+import RecipeInfo from "./components/RecipeInfo";
 
 const App = () => {
 	const [user, setUser] = useState(null)
@@ -37,6 +38,9 @@ const App = () => {
 				<Route exact path="/register">
 					<Register />
 				</Route>
+				<Route path="/recipes/:id">
+                    <RecipeInfo recipes={recipes} />
+                </Route>
 				<Route exact path="/recipes">
 					<Recipes setRecipes={setRecipes} recipes={recipes} user={user} setUser={setUser} />
 				</Route>
