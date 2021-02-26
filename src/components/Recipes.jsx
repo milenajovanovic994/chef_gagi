@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 import { getAllRecipes } from "../service"
-import Recipe from "./Recipe"
+import Recipe from "./Recipe/Recipe"
 import Select from "./Select"
+import Slideshow from "./Slideshow/Slideshow"
 
 const Recipes = ({ setRecipes, recipes, user, setUser }) => {
     const [select, setSelect] = useState('')
@@ -43,6 +44,12 @@ const Recipes = ({ setRecipes, recipes, user, setUser }) => {
                 }}>Logout</button>
             </header>
             <main>
+                <h1>RECIPES</h1>
+                <hr />
+                <section>
+                    <Slideshow recipes={recipes} />
+                </section>
+                <hr/>
                 <div>
                     <Select setSelect={setSelect} options={dishTypes} type='types of food' />
                 </div>
