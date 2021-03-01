@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import Home from "./components/Home";
-import Login from "./components/Login";
-import Register from "./components/Register";
 import Recipes from "./components/Recipes";
 import PostRecipe from "./components/PostRecipe";
 import RecipeInfo from "./components/RecipeInfo/RecipeInfo";
 import About from "./components/About";
 import StyledLink from "./components/Links/StyledLink";
+import Login from "./components/Forms/Login";
+import Register from "./components/Forms/Register";
 
 const App = () => {
 	const [user, setUser] = useState(null)
@@ -40,7 +40,7 @@ const App = () => {
 					<About />
 				</Route>
 				<Route exact path="/login">
-					<Login setUser={setUser} user={user} />
+					<Login setUser={setUser} />
 				</Route>
 				<Route exact path="/register">
 					<Register />
