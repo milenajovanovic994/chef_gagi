@@ -53,7 +53,7 @@ const Recipes = ({ setRecipes, recipes, user, setUser }) => {
                 <div>
                     <Select setSelect={setSelect} options={dishTypes} type='types of food' />
                 </div>
-                {recipes.filter(r => r.dishType.startsWith(select)).map(recipe => <Recipe key={recipe.id} recipe={recipe} />)}
+                {recipes.filter(r => r.dishType.startsWith(select)).map(recipe => <Recipe key={recipe._id} recipe={recipe} />)}
             </main>
         </>
     )

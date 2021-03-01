@@ -6,15 +6,15 @@ const Recipe = ({ recipe }) => {
     return (
         <>
             <StyledRecipe onClick={() => {
-                history.push(`/recipes/${recipe.id}`)
+                history.push(`/recipes/${recipe._id}`)
             }}>
                 <img src={recipe.img} alt="Food"/>
                 {/* <Link to={`/recipes/${recipe.id}`}>{recipe.title}</Link> */}
                 <p>{recipe.title}</p>
-                <button onClick={() => {
-                    history.push(`/recipes/${recipe.id}`)
-                }}>VIEW RECIPE</button>
                 {/* <p>Ingredients: {recipe.ingredients.map(i => `Ingredient: ${i}   `)}</p> */}
+                <button onClick={() => {
+                    history.push(`/recipes/${recipe._id}`)
+                }}>VIEW RECIPE</button>
             </StyledRecipe>
         </>
     )

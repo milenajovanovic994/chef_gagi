@@ -7,6 +7,7 @@ import Recipes from "./components/Recipes";
 import PostRecipe from "./components/PostRecipe";
 import RecipeInfo from "./components/RecipeInfo/RecipeInfo";
 import About from "./components/About";
+import StyledLink from "./components/Links/StyledLink";
 
 const App = () => {
 	const [user, setUser] = useState(null)
@@ -15,7 +16,8 @@ const App = () => {
 	return (
 		<Router>
 			<nav>
-				<Link to="/">Home</Link>
+				<StyledLink to="/">Home</StyledLink>
+				{/* <Link to="/">Home</Link> */}
 				<Link to="/about">About Gagi</Link>
 				<Link to="/recipes">Recipes</Link>
 				<Link to="/postrecipe">Post Recipe</Link>

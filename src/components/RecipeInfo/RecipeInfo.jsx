@@ -4,7 +4,7 @@ import StyledRecipeInfo from "./StyledRecipeInfo"
 const RecipeInfo = ({ recipes }) => {
     let { id } = useParams()
 
-    let recipe = recipes.find(r => r.id === Number(id))
+    let recipe = recipes.find(r => r._id === id)
     return (
         <StyledRecipeInfo>
             <h1>{recipe?.title}</h1>
@@ -13,7 +13,7 @@ const RecipeInfo = ({ recipes }) => {
             <div className="ingredients">
                 <p>Ingredients:</p>
                 <ul>
-                    {recipe?.ingredients.map(i => <li key={recipe?.id}>{i}</li>)}
+                    {recipe?.ingredients.map(i => <li key={i}>{i}</li>)}
                 </ul>
             </div>
                 <hr />

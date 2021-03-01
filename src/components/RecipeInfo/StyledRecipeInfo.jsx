@@ -18,8 +18,8 @@ const StyledRecipeInfo = styled.div`
     .ingredients {
        font-style: italic;
        p {
-           font-size: 20px;
-           /* font-weigh */
+           font-size: 25px;
+           font-weight: 120px;
        }
     }
     .recipe {
