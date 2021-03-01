@@ -45,10 +45,10 @@ const StyledLogin = styled.div`
         position: absolute;
         top: 38%;
         right: 16%;
-    }
-    i:hover {
+        &:hover {
         color: #00fcb6;
         cursor: pointer;
+        }
     }
     .btn-submit {
         width: 300px;

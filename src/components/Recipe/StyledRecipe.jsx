@@ -8,7 +8,7 @@ const StyledRecipe = styled.div`
     border: 1px solid black;
     border-radius: 10px;
     text-align: center;
-
+    cursor: pointer;
     img {
         width: 150px;
         height: 100px;
