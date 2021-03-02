@@ -2,11 +2,6 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const StyledLinkRight = styled(Link)`
-    /* padding: 10px;
-    text-decoration: none;
-    &:hover {
-        text-decoration: underline;
-    } */
     display: flex;
     align-items: center;
     list-style: none;
@@ -25,7 +20,6 @@ const StyledLinkRight = styled(Link)`
     }
     &:hover,
     &:active {
-        color: inherit;
         background-color: #4bbb7d;
         color: #333;
     }
