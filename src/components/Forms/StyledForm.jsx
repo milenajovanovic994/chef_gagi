@@ -3,25 +3,20 @@ import styled from 'styled-components'
 const StyledLogin = styled.div`
 
     border-radius: 50px;
-    background: #9c9b81;
+    background: #4a995c;
     box-shadow: inset 17px 17px 35px #5e5d4d,
-                inset -17px -17px 35px #dad9b5;
-
-
+                inset -17px -17px 35px #4bbb7d;
     display: flex;
     flex-direction: column;
     text-align: center;
     justify-items: center;
     font-size: 22px;
     max-width: 500px;
-    min-height: 672px;
-    margin: 0 auto;
-    /* border-radius: 25px; */
+    /* min-height: 550px; */
+    margin: -170px auto 10px auto;
     color: white;
-    /* background-color: rgba(0, 0, 0, 0.5); */
-
     .identity-input {
-        margin-top: 200px;
+        margin-top: 30px;
     }
     input {
         margin: 0 auto;
@@ -55,6 +50,15 @@ const StyledLogin = styled.div`
         height: 50px;
         margin: 0 auto;
         cursor: pointer;
+        &:hover {
+            background-color: #3d3d3d;
+        }
+    }
+    .register-now {
+        margin: 10px 0px 20px 0px;
+    }
+    p {
+        color: white;
     }
 `
 export default StyledLogin

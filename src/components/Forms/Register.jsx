@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEye } from "@fortawesome/free-solid-svg-icons"
 import StyledForm from "./StyledForm"
 import Error from "../Error/Error"
+import StyledWrapper from "../StyledWrapper"
+import StyledMain from "../StyledMain"
 const eye = <FontAwesomeIcon icon={faEye} />
 
 const Register = () => {
@@ -35,63 +37,66 @@ const Register = () => {
 
     return (
         <>
-            <h1>Register</h1>
-            <form onSubmit={(e) => {
-                e.preventDefault()
+            <StyledWrapper>
+                <StyledMain>
+                    <form onSubmit={(e) => {
+                        e.preventDefault()
 
-                if (isValid()) {
-                    let user = {
-                        username: username,
-                        email: email,
-                        password: pass
-                    }
-                    postUser(user).then(() => {
-                        history.push('/login')
-                    }).catch(() => {
-                        setErrorR('User with this username or email already exists!')
-                    })
+                        if (isValid()) {
+                            let user = {
+                                username: username,
+                                email: email,
+                                password: pass
+                            }
+                            postUser(user).then(() => {
+                                history.push('/login')
+                            }).catch(() => {
+                                setErrorR('User with this username or email already exists!')
+                            })
 
-                }
-                else if (username.trim().length < 4) {
-                    setErrorR('Username must include at least 4 characters!')
-                }
-                else if (email.trim().length === 0) {
-                    setErrorR('Email must be entered!')
-                }
-                else if (/^[a-zA-Z]+$/.test(pass) ||
-                    /^\d+$/.test(pass) || pass.trim().length < 8) {
-                    setErrorR('Password must include 8 characters or more, at least one number and one letter!')
-                }
-                else if (pass !== pass2) {
-                    setErrorR('Passwords must match!')
-                }
-            }}>
-                <StyledForm>
- {/* <div> */}
-                    {/* <label htmlFor="username">Username: </label> */}
-                    <input type="text" id="username" placeholder="Username..." className="identity-input" onChange={(e) => setUsername(e.target.value)} />
-                {/* </div> */}
-                {/* <div> */}
-                    {/* <label htmlFor="email">Email: </label> */}
-                    <input type="email" id="email" placeholder="Email..." onChange={(e) => setEmail(e.target.value)} />
-                {/* </div> */}
-                <div className="pass-wrapper">
-                    {/* <label htmlFor="pass">Password: </label> */}
-                    <input type={passShown ? "text" : "password"} id="pass" placeholder="Password..." onChange={(e) => setPass(e.target.value)} />
-                    <i onClick={togglePasswordVisiblity}>{eye}</i>
-                </div>
-                <div className="pass-wrapper">
-                    {/* <label htmlFor="pass2">Enter your password again: </label> */}
-                    <input type={passShown1 ? "text" : "password"} id="pass2" placeholder="Password..." onChange={(e) => setPass2(e.target.value)} />
-                    <i onClick={togglePasswordVisiblity}>{eye}</i>
-                </div>
-                {/* <div> */}
-                    <input type="submit" value="Register" className="btn-submit" />
-                {/* </div> */}
-                <Error error={errorR} />
-                </StyledForm>
-               
-            </form>
+                        }
+                        else if (username.trim().length < 4) {
+                            setErrorR('Username must include at least 4 characters!')
+                        }
+                        else if (email.trim().length === 0) {
+                            setErrorR('Email must be entered!')
+                        }
+                        else if (/^[a-zA-Z]+$/.test(pass) ||
+                            /^\d+$/.test(pass) || pass.trim().length < 8) {
+                            setErrorR('Password must include 8 characters or more, at least one number and one letter!')
+                        }
+                        else if (pass !== pass2) {
+                            setErrorR('Passwords must match!')
+                        }
+                    }}>
+                        <StyledForm>
+                            <h1>Register</h1>
+
+                            {/* <div> */}
+                            {/* <label htmlFor="username">Username: </label> */}
+                            <input type="text" id="username" placeholder="Username..." className="identity-input" onChange={(e) => setUsername(e.target.value)} />
+                            {/* </div> */}
+                            {/* <div> */}
+                            {/* <label htmlFor="email">Email: </label> */}
+                            <input type="email" id="email" placeholder="Email..." onChange={(e) => setEmail(e.target.value)} />
+                            {/* </div> */}
+                            <div className="pass-wrapper">
+                                {/* <label htmlFor="pass">Password: </label> */}
+                                <input type={passShown ? "text" : "password"} id="pass" placeholder="Password..." onChange={(e) => setPass(e.target.value)} />
+                                <i onClick={togglePasswordVisiblity}>{eye}</i>
+                            </div>
+                            <div className="pass-wrapper">
+                                {/* <label htmlFor="pass2">Enter your password again: </label> */}
+                                <input type={passShown1 ? "text" : "password"} id="pass2" placeholder="Password..." onChange={(e) => setPass2(e.target.value)} />
+                                <i onClick={togglePasswordVisiblity}>{eye}</i>
+                            </div>
+                            <input type="submit" value="Register" className="btn-submit" />
+                            <Error error={errorR} />
+                        </StyledForm>
+                    </form>
+                </StyledMain>
+            </StyledWrapper>
+
         </>
     )
 }
