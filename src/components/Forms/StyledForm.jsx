@@ -12,7 +12,6 @@ const StyledLogin = styled.div`
     justify-items: center;
     font-size: 22px;
     max-width: 500px;
-    /* min-height: 550px; */
     margin: -170px auto 10px auto;
     color: white;
     .identity-input {

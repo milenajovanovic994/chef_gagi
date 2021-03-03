@@ -1,17 +1,13 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useHistory } from "react-router-dom"
-import { getAllRecipes } from "../service"
-import Recipe from "./Recipe/Recipe"
-import Select from "./Select"
+import { getAllUserRecipes } from "../service"
 import StyledButton from "./StyledButton"
 import StyledRecipies from "./StyledRecipes"
 import StyledWrapper from "./StyledWrapper"
+import UserRecipe from "./UserRecipe"
 
-const Recipes = ({ setRecipes, recipes, user, setUser }) => {
-    const [select, setSelect] = useState('')
+const Community = ({ setUserRecipes, userRecipes, user, setUser }) => {
     const history = useHistory()
-
-
 
     useEffect(() => {
         let mounted = true
@@ -21,15 +17,13 @@ const Recipes = ({ setRecipes, recipes, user, setUser }) => {
             return
         }
 
-        getAllRecipes().then(res => {
+        getAllUserRecipes().then(res => {
             if (mounted)
-                setRecipes(res.data)
+                setUserRecipes(res.data)
         })
 
         return () => mounted = false
-    }, [history, setRecipes, user])
-
-    let dishTypes = [...new Set(recipes.map(recipe => recipe.dishType))]
+    }, [history, setUserRecipes, user])
 
     return (
         <StyledWrapper>
@@ -41,15 +35,12 @@ const Recipes = ({ setRecipes, recipes, user, setUser }) => {
             </StyledButton>
             <StyledRecipies>
                 <div className="main-title">
-                    <h1>RECIPES</h1>
+                    <h1>Place for your recipes</h1>
                 </div>
-                <div className="div-select">
-                    <Select setSelect={setSelect} options={dishTypes} type='types of food' />
-                </div>
-                {recipes.filter(r => r.dishType.startsWith(select)).map(recipe => <Recipe key={recipe._id} recipe={recipe} />)}
+                {userRecipes.map(recipe => <UserRecipe key={recipe._id} recipe={recipe} />)}
             </StyledRecipies>
         </StyledWrapper>
     )
 }
 
-export default Recipes
+export default Community

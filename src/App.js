@@ -9,30 +9,32 @@ import Register from "./components/Forms/Register";
 import StyledNav from "./components/StyledNav";
 import StyledLink from "./components/Links/StyledLink";
 import StyledLinkRight from "./components/Links/StyledLinkRight";
+import Community from "./components/Community";
+import StyledUser from "./components/StyledUser";
+import StyledGagi from "./components/StyledGagi";
 
 const App = () => {
 	const [user, setUser] = useState(null)
 	const [recipes, setRecipes] = useState([])
+	const [userRecipes, setUserRecipes] = useState([])
 
 	return (
 		<Router>
 			<StyledNav>
+				<StyledGagi>Chef Gagi</StyledGagi>
 				<StyledLink to="/">Home</StyledLink>
 				<StyledLink to="/recipes">Recipes</StyledLink>
 				<StyledLink to="/postrecipe">Post Recipe</StyledLink>
-				{/* <Link to="/">Home</Link> */}
-				{/* <Link to="/">Home</Link> */}
-				{/* <Link to="/recipes">Recipes</Link> */}
-				{/* <Link to="/postrecipe">Post Recipe</Link> */}
+				<StyledLink to="/community">Community</StyledLink>
 
 				{user ?
-					user.username
+					<StyledUser>
+						{user.username}
+					</StyledUser>
 					:
 					<>
 						<StyledLinkRight to="/login">Login</StyledLinkRight>
 						<StyledLinkRight to="/register">Register</StyledLinkRight>
-						{/* <Link to="/login">Login</Link> */}
-						{/* <Link to="/register">Register</Link> */}
 					</>
 				}
 			</StyledNav>
@@ -53,7 +55,10 @@ const App = () => {
 					<Recipes setRecipes={setRecipes} recipes={recipes} user={user} setUser={setUser} />
 				</Route>
 				<Route exact path="/postrecipe">
-					<PostRecipe user={user} setRecipes={setRecipes} setUser={setUser} />
+					<PostRecipe user={user} setUserRecipes={setUserRecipes} setUser={setUser} />
+				</Route>
+				<Route exact path="/community">
+					<Community setUserRecipes={setUserRecipes} userRecipes={userRecipes} user={user} setUser={setUser} />
 				</Route>
 			</Switch>
 

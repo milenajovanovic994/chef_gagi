@@ -51,7 +51,13 @@ const StyledWrapper = styled.div`
         content: '';
         opacity: 0.7;
         transform: scale(1.07, 1.05) skewX(-15deg);
-        background-image: linear-gradient(to top left, #39b385, #9be15d);
+        border: 7px inset #5ec576;
+        &:hover {
+            border: 7px outset #4bbb7d;
+        }
+    }
+    .logout {
+        
     }
 `
 
