@@ -72,21 +72,13 @@ const Register = () => {
                         <StyledForm>
                             <h1>Register</h1>
 
-                            {/* <div> */}
-                            {/* <label htmlFor="username">Username: </label> */}
                             <input type="text" id="username" placeholder="Username..." className="identity-input" onChange={(e) => setUsername(e.target.value)} />
-                            {/* </div> */}
-                            {/* <div> */}
-                            {/* <label htmlFor="email">Email: </label> */}
                             <input type="email" id="email" placeholder="Email..." onChange={(e) => setEmail(e.target.value)} />
-                            {/* </div> */}
                             <div className="pass-wrapper">
-                                {/* <label htmlFor="pass">Password: </label> */}
                                 <input type={passShown ? "text" : "password"} id="pass" placeholder="Password..." onChange={(e) => setPass(e.target.value)} />
                                 <i onClick={togglePasswordVisiblity}>{eye}</i>
                             </div>
                             <div className="pass-wrapper">
-                                {/* <label htmlFor="pass2">Enter your password again: </label> */}
                                 <input type={passShown1 ? "text" : "password"} id="pass2" placeholder="Password..." onChange={(e) => setPass2(e.target.value)} />
                                 <i onClick={togglePasswordVisiblity}>{eye}</i>
                             </div>
@@ -96,7 +88,6 @@ const Register = () => {
                     </form>
                 </StyledMain>
             </StyledWrapper>
-
         </>
     )
 }

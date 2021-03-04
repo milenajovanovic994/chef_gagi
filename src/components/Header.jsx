@@ -3,7 +3,6 @@ import StyledLinkBtn from "./Links/StyledLinkBtn"
 const Header = () => {
     return (
         <div className="header-title">
-
             <h1>A place for&nbsp;
             <span className="highlight">
                     you
@@ -19,7 +18,7 @@ const Header = () => {
             </h1>
             <h4>Don't take my word for it, try it yourself!</h4>
             <StyledLinkBtn href="#target">Learn more &#8595;</StyledLinkBtn>
-            <img src="https://res.cloudinary.com/milenajovanovic994/image/upload/v1613997870/sample.jpg" alt="Chef Gagi" className="header-img" />
+            <img src="https://res.cloudinary.com/milenajovanovic994/image/upload/v1614816053/projekat/Gagi/20200612_181316_mctdli.jpg" alt="Chef Gagi" className="header-img" />
         </div>
     )
 }

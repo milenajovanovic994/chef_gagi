@@ -61,7 +61,6 @@ const App = () => {
 					<Community setUserRecipes={setUserRecipes} userRecipes={userRecipes} user={user} setUser={setUser} />
 				</Route>
 			</Switch>
-
 		</Router>
 	)
 }

@@ -56,9 +56,6 @@ const StyledWrapper = styled.div`
             border: 7px outset #4bbb7d;
         }
     }
-    .logout {
-        
-    }
 `
 
 export default StyledWrapper

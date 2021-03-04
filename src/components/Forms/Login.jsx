@@ -53,12 +53,8 @@ const Login = ({ setUser }) => {
 
 
                             <h1>Login</h1>
-                            {/* <div> */}
-                            {/* <label htmlFor="identity">Username: </label> */}
                             <input type="text" id="identity" placeholder="Username..." className="identity-input" onChange={(e) => setIdentity(e.target.value)} />
-                            {/* </div> */}
                             <div className="pass-wrapper">
-                                {/* <label htmlFor="password">Password: </label> */}
                                 <input type={passwordShown ? "text" : "password"} id="password" placeholder="Password..." onChange={(e) => setPassword(e.target.value)} />
                                 <i onClick={togglePasswordVisiblity}>{eye}</i>
                             </div>
@@ -67,7 +63,6 @@ const Login = ({ setUser }) => {
                         </form>
                         <div className="register-now">
                             <p>You don't have an account yet? <Link to="/register">Register now!</Link></p>
-
                         </div>
                     </StyledForm>
                 </StyledMain>

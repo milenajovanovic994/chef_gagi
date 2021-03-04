@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 const StyledNav = styled.div`
-    /* position: fixed; */
     background-color: rgba(255, 255, 255, 0.95);
     font-size: 62.5%;
     box-sizing: border-box;
@@ -9,7 +8,6 @@ const StyledNav = styled.div`
     font-weight: 300;
     color: #444;
     line-height: 1.9;
-    /* background-color: #f3f3f3; */
     display: flex;
     justify-content: space-between;
     align-items: center;

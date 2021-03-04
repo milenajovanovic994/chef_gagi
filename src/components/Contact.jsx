@@ -1,7 +1,6 @@
 const Contact = ({ visible, setVisible }) => {
 
     return visible ? (
-
         <>
             <div className="modal">
                 <button className="btn--close-modal" onClick={() => {
@@ -19,8 +18,8 @@ const Contact = ({ visible, setVisible }) => {
                 </form>
             </div>
             <div className="overlay" onClick={() => {
-                    setVisible(false)
-                }}></div>
+                setVisible(false)
+            }}></div>
         </>
     )
         :

@@ -11,8 +11,6 @@ const Recipes = ({ setRecipes, recipes, user, setUser }) => {
     const [select, setSelect] = useState('')
     const history = useHistory()
 
-
-
     useEffect(() => {
         let mounted = true
 

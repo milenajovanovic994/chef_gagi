@@ -22,9 +22,6 @@ const StyledMain = styled.main`
         gap: 4rem;
         margin: 0 12rem;
     }
-    .lazy-img {
-        filter: blur(20px);
-    }
     .features-img {
         width: 100%;
     }

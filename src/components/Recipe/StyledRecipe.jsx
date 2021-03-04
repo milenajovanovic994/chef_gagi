@@ -16,7 +16,6 @@ const StyledRecipe = styled.div`
         width: 250px;
         height: 150px;
         border-radius: 0.5rem;
-
     }
     .btn-recipe {
         display: inline-block;

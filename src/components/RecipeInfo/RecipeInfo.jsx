@@ -25,7 +25,6 @@ const RecipeInfo = ({ recipes }) => {
                         <p className="recipe-instruction">{recipe?.recipe}</p>
                     </div>
                 </section>
-
             </StyledRecipeInfo>
         </StyledWrapper>
 
