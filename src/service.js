@@ -1,12 +1,12 @@
 import axios from 'axios'
-import { BASE_URL, COMMUNITY, LOGIN, PORT, RECIPES, USERS } from './constants'
+import { BASE_URL, COMMUNITY, LOGIN, RECIPES, USERS } from './constants'
 
-export const getAllRecipes = () => axios.get(`${BASE_URL}${PORT}${RECIPES}`)
-export const getAllUserRecipes = () => axios.get(`${BASE_URL}${PORT}${COMMUNITY}`)
-export const getAllUsers = () => axios.get(`${BASE_URL}${PORT}${USERS}`)
+export const getAllRecipes = () => axios.get(`${BASE_URL}${RECIPES}`)
+export const getAllUserRecipes = () => axios.get(`${BASE_URL}${COMMUNITY}`)
+export const getAllUsers = () => axios.get(`${BASE_URL}${USERS}`)
 
-export const postRecipe = (recipe) => axios.post(`${BASE_URL}${PORT}${RECIPES}`, recipe)
-export const postUserRecipe = (recipe) => axios.post(`${BASE_URL}${PORT}${COMMUNITY}`, recipe)
-export const postUser = (user) => axios.post(`${BASE_URL}${PORT}${USERS}`, user)
+export const postRecipe = (recipe) => axios.post(`${BASE_URL}${RECIPES}`, recipe)
+export const postUserRecipe = (recipe) => axios.post(`${BASE_URL}${COMMUNITY}`, recipe)
+export const postUser = (user) => axios.post(`${BASE_URL}${USERS}`, user)
 
-export const loginUser = (user) => axios.post(`${BASE_URL}${PORT}${USERS}${LOGIN}`, user)
+export const loginUser = (user) => axios.post(`${BASE_URL}${USERS}${LOGIN}`, user)

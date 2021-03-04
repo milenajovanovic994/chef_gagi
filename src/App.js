@@ -19,7 +19,7 @@ const App = () => {
 	const [userRecipes, setUserRecipes] = useState([])
 
 	return (
-		<Router>
+		<Router basename='/chef_gagi'>
 			<StyledNav>
 				<StyledGagi>Chef Gagi</StyledGagi>
 				<StyledLink to="/">Home</StyledLink>
