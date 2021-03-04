@@ -19,7 +19,7 @@ const App = () => {
 	const [userRecipes, setUserRecipes] = useState([])
 
 	return (
-		<Router basename={'https://milenajovanovic994.github.io/'}>
+		<Router basename={'/'}>
 			<StyledNav>
 				<StyledGagi>Chef Gagi</StyledGagi>
 				<StyledLink to="/">Home</StyledLink>
