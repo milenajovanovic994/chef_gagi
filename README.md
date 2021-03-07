@@ -2,7 +2,7 @@
 
 Contact: [LinkedIn](https://www.linkedin.com/in/milena-jovanovic-7b2a7a204/)
 
-You can access Chef Gagi's website via this [link]()
+You can access Chef Gagi's website via this [link](https://milenajovanovic994.github.io/chef_gagi/)
 
 ### Instructions on how to run it on your computer:
 
@@ -24,7 +24,7 @@ You need to clone second git repository (that is server repo): https://github.co
 
 ### Description and functionalities
 
-This website is created to promote skills and personality of Dragan Jovanovic, young chef and my brother. It contains some of his best recipes, but also it describes Dragan's path of a rising chef. My vision was that it connects communitu by enabling anyone who creates account to post their own recipe and comb trough others'. So, a user can create an account (register) and then log in. After that, user can go trough recipes, sort them by their type, post some recipes and contact Dragan via Contact form.
+This website is created to promote skills and personality of Dragan Jovanovic, young chef and my brother. It contains some of his best recipes, but also it describes Dragan's path of a rising chef. My vision was that it connects community by enabling anyone who creates account to post their own recipe and comb trough others'. So, a user can create an account (register) and then log in. After that, user can go trough recipes, sort them by their type, post some recipes and contact Dragan via Contact form.
 
 Website is still not complete. Some functionalities will be added in near future.
 
